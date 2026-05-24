@@ -75,41 +75,6 @@
             gap: 10px;
         }
 
-        .link,
-        .button {
-            min-height: 36px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            padding: 8px 14px;
-            font-size: 0.92rem;
-            text-decoration: none;
-        }
-
-        .link {
-            color: var(--muted);
-        }
-
-        .button {
-            border: 1px solid transparent;
-            background: var(--accent);
-            color: #ffffff;
-            font-weight: 600;
-            box-shadow: 0 12px 28px rgba(11, 99, 206, 0.22);
-        }
-
-        .button:hover {
-            background: var(--accent-hover);
-        }
-
-        .button.secondary {
-            background: var(--surface-solid);
-            border-color: var(--border);
-            color: var(--text);
-            box-shadow: none;
-        }
-
         .hero {
             min-height: calc(100vh - 76px);
             display: grid;
@@ -131,8 +96,8 @@
 
         .tag::before {
             content: "";
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             border-radius: 999px;
             background: currentColor;
         }
@@ -142,14 +107,6 @@
             font-size: clamp(3.2rem, 7vw, 5.8rem);
             line-height: 0.96;
             letter-spacing: 0;
-        }
-
-        .lead {
-            max-width: 500px;
-            margin: 22px 0 0;
-            color: var(--muted);
-            font-size: 1.06rem;
-            line-height: 1.55;
         }
 
         .actions {
@@ -324,11 +281,6 @@
                 width: 100%;
             }
 
-            .link,
-            .button {
-                flex: 1;
-            }
-
             .preview-body {
                 grid-template-columns: 80px 1fr;
                 min-height: 300px;
@@ -343,26 +295,24 @@
 
 <body>
     <header class="shell topbar">
-        <a class="brand" href="./" aria-label="STEMpolis">
+        <div class="brand" href="./" aria-label="STEMpolis">
             <img src="./icon.svg" alt="">
             <span>STEMpolis</span>
-        </a>
+        </div>
         <nav class="nav" aria-label="Akcije">
-            <a class="link" href="stempolis://login">Otvori aplikaciju</a>
-            <a class="button secondary" href="https://github.com/n1ko-josipovic/conf-Pg-STEMpolis/releases/latest">Preuzimanja</a>
+            <a href="https://github.com/n1ko-josipovic/STEMpolis/releases/latest">Popis izdanja</a>
         </nav>
     </header>
 
     <main class="shell hero">
         <section aria-labelledby="title">
-            <div class="tag">Windows desktop</div>
+            <div class="tag">Desktop</div>
             <h1 id="title">STEMpolis</h1>
-            <p class="lead">Zadaci, bilješke i dokumenti u jednoj desktop aplikaciji.</p>
             <div class="actions">
-                <a class="button" href="https://github.com/n1ko-josipovic/conf-Pg-STEMpolis/releases/latest">Preuzmi</a>
-                <a class="button secondary" href="stempolis://login">Otvori aplikaciju</a>
+                <a href="https://github.com/n1ko-josipovic/STEMpolis/releases/latest">Preuzmi</a>
+                <a href="stempolis://login">Otvori aplikaciju</a>
             </div>
-            <div class="version">1.2.0-alpha</div>
+            <div class="version">Trenutna verzija: 1.2.0-alpha</div>
         </section>
 
         <section class="preview" aria-label="STEMpolis pregled">
