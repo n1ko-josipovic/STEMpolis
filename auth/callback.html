@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>STEMpolis</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f7f8fb;
+            --surface: #ffffff;
+            --text: #172033;
+            --muted: #667085;
+            --border: rgba(23, 32, 51, 0.12);
+            --accent: #0b63ce;
+            --accent-hover: #004a9f;
+            --success: #167c3b;
+            --danger: #c42b1c;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 50% 12%, rgba(11, 99, 206, 0.1), transparent 36%),
+                linear-gradient(135deg, #f9fbff, #eef6f1);
+        }
+
+        .panel {
+            width: min(360px, 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+            box-shadow: 0 24px 70px rgba(17, 24, 39, 0.12);
+            padding: 26px;
+            text-align: center;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .brand img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .state {
+            width: 42px;
+            height: 42px;
+            display: inline-grid;
+            place-items: center;
+            margin-bottom: 14px;
+            border-radius: 999px;
+            background: rgba(22, 124, 59, 0.12);
+            color: var(--success);
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .state.error {
+            background: rgba(196, 43, 28, 0.12);
+            color: var(--danger);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.18rem;
+            letter-spacing: 0;
+        }
+
+        p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        .progress {
+            height: 3px;
+            margin: 20px 0 18px;
+            border-radius: 999px;
+            background: #e6ebf2;
+            overflow: hidden;
+        }
+
+        .progress span {
+            display: block;
+            width: 42%;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--accent);
+            animation: slide 1.15s ease-in-out infinite;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            flex: 1;
+            min-height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            padding: 8px 12px;
+            background: var(--accent);
+            color: #ffffff;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: var(--accent-hover);
+        }
+
+        .button.secondary {
+            background: #ffffff;
+            border-color: var(--border);
+            color: var(--text);
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(-110%);
+            }
+
+            55%,
+            100% {
+                transform: translateX(260%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="panel">
+        <div class="brand">
+            <img src="../icon.svg" alt="">
+            <span>STEMpolis</span>
+        </div>
+        <div class="state" id="status-icon">✓</div>
+        <h1 id="status-title">Otvaram aplikaciju</h1>
+        <p id="status-message">Pričekajte trenutak.</p>
+        <div class="progress" id="progress"><span></span></div>
+        <div class="actions">
+            <a class="button" id="open-app-link" href="stempolis://login">Otvori</a>
+            <a class="button secondary" href="../">Web</a>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var hash = window.location.hash || '';
+            var searchParams = new URLSearchParams((window.location.search || '').replace(/^\?/, ''));
+            var hashParams = new URLSearchParams(hash.replace(/^#/, ''));
+            var params = new URLSearchParams(searchParams.toString());
+
+            hashParams.forEach(function (value, key) {
+                params.set(key, value);
+            });
+
+            var title = document.getElementById('status-title');
+            var message = document.getElementById('status-message');
+            var icon = document.getElementById('status-icon');
+            var openLink = document.getElementById('open-app-link');
+            var progress = document.getElementById('progress');
+            var error = params.get('error_description') || params.get('error');
+
+            if (error) {
+                icon.textContent = '!';
+                icon.classList.add('error');
+                title.textContent = 'Poveznica nije valjana';
+                message.textContent = 'Zatražite novu poveznicu u aplikaciji.';
+                progress.hidden = true;
+                openLink.href = 'stempolis://login';
+                return;
+            }
+
+            var intent = params.get('intent');
+            var type = params.get('type');
+            var target = intent === 'reset-password' || type === 'recovery' ? 'reset-password' : 'login';
+            var intentValue = intent || (target === 'reset-password' ? 'reset-password' : 'confirm');
+            var deepLink = 'stempolis://' + target + '?intent=' + encodeURIComponent(intentValue) + hash;
+
+            if (target === 'reset-password') {
+                title.textContent = 'Promjena lozinke';
+                message.textContent = 'Otvaram STEMpolis.';
+            } else {
+                title.textContent = 'E-mail potvrđen';
+                message.textContent = 'Otvaram STEMpolis.';
+            }
+
+            openLink.href = deepLink;
+            window.setTimeout(function () {
+                window.location.href = deepLink;
+            }, 300);
+        })();
+    </script>
+</body>
+
+</html>
