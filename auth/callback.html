@@ -1,137 +1,36 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>STEMpolis</title>
-    <style>
-        :root {
-            color-scheme: light;
-            --bg: #f7f8fb;
-            --surface: #ffffff;
-            --text: #172033;
-            --muted: #667085;
-            --border: rgba(23, 32, 51, 0.12);
-            --accent: #0b63ce;
-            --accent-hover: #004a9f;
-            --success: #167c3b;
-            --danger: #c42b1c;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            margin: 0;
-            min-height: 100%;
-        }
-
-        body {
-            min-height: 100vh;
-            display: grid;
-            place-items: center;
-            padding: 24px;
-            font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text);
-            background:
-                radial-gradient(circle at 50% 12%, rgba(11, 99, 206, 0.1), transparent 36%),
-                linear-gradient(135deg, #f9fbff, #eef6f1);
-        }
-
-        .panel {
-            width: min(360px, 100%);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: var(--surface);
-            box-shadow: 0 24px 70px rgba(17, 24, 39, 0.12);
-            padding: 26px;
-            text-align: center;
-        }
-
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .brand img {
-            width: 32px;
-            height: 32px;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 1rem;
-        }
-
-        p {
-            margin: 8px 0 0;
-            color: var(--muted);
-            line-height: 1.45;
-        }
-
-        .progress {
-            height: 3px;
-            margin: 20px 0 18px;
-            border-radius: 999px;
-            background: #e6ebf2;
-            overflow: hidden;
-        }
-
-        .progress span {
-            display: block;
-            width: 42%;
-            height: 100%;
-            border-radius: inherit;
-            background: var(--accent);
-            animation: slide 1.15s ease-in-out infinite;
-        }
-
-        .actions {
-            display: flex;
-        }
-
-        .button {
-            flex: 1;
-            min-height: 38px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateX(-110%);
-            }
-
-            55%,
-            100% {
-                transform: translateX(260%);
-            }
-        }
-    </style>
+    <title>STEMpolis Autentifikacija</title>
 </head>
 
-<body>
-    <main class="panel">
-        <div class="brand">
-            <img src="../icon.svg" alt="">
-            <span>STEMpolis</span>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+    <center>
+        <div style="position: absolute; top: 16px; left: 16px;">
+            <img src="../icon.svg" width="32" height="32" alt="STEMpolis ikona">
         </div>
-        <h1 id="status-title"></h1>
-        <div class="progress" id="progress"><span></span></div>
-        <div class="actions">
-            <a class="button" id="open-app-link" href="stempolis://login">Otvori</a>
-            <a class="button" href="../">Početna</a>
-        </div>
-    </main>
+        <center>
+            <h1>STEMpolis</h1>
+        </center>
+
+        <h3 id="status-title">Provjera u tijeku...</h3>
+
+        <br>
+
+        <table border="1" cellpadding="10">
+            <tr>
+                <td align="center">
+                    <a id="open-app-link" href="stempolis://login"><b>[ Otvori STEMpolis aplikaciju ]</b></a>
+                    <br><br>
+                    <a href="../">Početna stranica</a>
+                </td>
+            </tr>
+        </table>
+    </center>
 
     <script>
         (function () {
@@ -146,12 +45,10 @@
 
             var title = document.getElementById('status-title');
             var openLink = document.getElementById('open-app-link');
-            var progress = document.getElementById('progress');
             var error = params.get('error_description') || params.get('error');
 
             if (error) {
-                title.textContent = 'Poveznica nije valjana';
-                progress.hidden = true;
+                title.innerHTML = '<font color="red">Poveznica nije valjana ili je istekla.</font>';
                 openLink.href = 'stempolis://login';
                 return;
             }
@@ -163,9 +60,9 @@
             var deepLink = 'stempolis://' + target + '?intent=' + encodeURIComponent(intentValue) + hash;
 
             if (target === 'reset-password') {
-                title.textContent = 'Promjena lozinke';
+                title.textContent = 'Zahtjev za promjenu lozinke potvrđen.';
             } else {
-                title.textContent = 'E-mail potvrđen';
+                title.textContent = 'E-mail je potvrđen.';
             }
 
             openLink.href = deepLink;
