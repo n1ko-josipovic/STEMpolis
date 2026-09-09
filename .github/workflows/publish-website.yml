@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'mrežna stranica/**'
+      - 'gh-pages/**'
       - 'scripts/generate-release-data.mjs'
       - '.github/workflows/publish-website.yml'
   release:
@@ -44,5 +44,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: './mrežna stranica'
+          publish_dir: './gh-pages'
           force_orphan: true
