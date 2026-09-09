@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const outputPath = path.join(projectRoot, 'mrežna stranica', 'releases.json');
+const outputPath = path.join(projectRoot, 'gh-pages', 'releases.json');
 const repositorySlug = process.env.GITHUB_REPOSITORY || 'n1ko-josipovic/STEMpolis';
 const [owner, repo] = repositorySlug.split('/');
 const repositoryUrl = `https://github.com/${owner}/${repo}`;
