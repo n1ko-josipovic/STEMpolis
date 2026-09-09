@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Preuzmite STEMpolis i pregledajte novosti u posljednjim izdanjima.">
+    <meta name="theme-color" content="#005fb8">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <title>STEMpolis — preuzimanje</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand">
+            <img src="icon.svg" width="34" height="34" alt="">
+            <span>STEMpolis</span>
+        </a>
+        <nav>
+            <a href="https://github.com/n1ko-josipovic/STEMpolis">GitHub</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="preuzimanje">
+            <p class="eyebrow">Desktop aplikacija</p>
+            <h1>Materijali na jednome mjestu.</h1>
+            <div class="actions">
+                <a class="button button-primary" id="primary-download"
+                    href="https://github.com/n1ko-josipovic/STEMpolis/releases/latest">
+                    Preuzmi za Windows
+                </a>
+                <a class="button button-secondary" href="stempolis://login">Otvori aplikaciju</a>
+            </div>
+            <p class="download-meta" id="download-meta">Windows 10/11 · 64-bit</p>
+            <p class="future-platforms">Uskoro dolazi podrška za macOS i Linux</p>
+        </section>
+
+        <section class="releases" id="izdanja" aria-labelledby="releases-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Promjene u aplikaciji</p>
+                    <h2 id="releases-title">Najnovije izdanje</h2>
+                </div>
+                <a href="https://github.com/n1ko-josipovic/STEMpolis/releases">Pogledajte sva izdanja</a>
+            </div>
+
+            <div id="release-status" class="status" role="status">Učitavanje podataka o izdanju…</div>
+            <article id="latest-release" class="release-card" hidden></article>
+
+            <div id="older-releases" class="older-releases" hidden>
+                <h2>Prethodna izdanja</h2>
+                <div id="older-release-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
