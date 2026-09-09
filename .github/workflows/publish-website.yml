@@ -1,0 +1,48 @@
+name: Objava mrežne stranice
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'mrežna stranica/**'
+      - 'scripts/generate-release-data.mjs'
+      - '.github/workflows/publish-website.yml'
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stempolis-website
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Preuzmimanje repozitorija
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Postavljanje Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Priprema podataka o izdanjima
+        run: node scripts/generate-release-data.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Objava na granu gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: './mrežna stranica'
+          force_orphan: true
