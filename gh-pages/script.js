@@ -156,9 +156,6 @@
     }
 
     function renderLatest(release) {
-        var panelTitle = document.createElement('strong');
-        panelTitle.textContent = 'Promjene u aplikaciji';
-
         var header = document.createElement('header');
 
         var title = document.createElement('h3');
@@ -171,7 +168,7 @@
         date.textContent = 'Objavljeno ' + formatDate(release.publishedAt);
         header.append(title, date);
 
-        latestContainer.replaceChildren(panelTitle, header, renderNotes(release.body), createAssetLinks(release));
+        latestContainer.replaceChildren(header, renderNotes(release.body), createAssetLinks(release));
         latestContainer.hidden = false;
 
         var windowsAsset = (release.assets || []).find(function (asset) {
@@ -191,8 +188,19 @@
 
         previous.forEach(function (release) {
             var details = document.createElement('details');
+            details.className = 'release-terminal';
+            details.dataset.prompt = 'stempolis@release:~$ ' + release.tagName;
+
             var summary = document.createElement('summary');
-            summary.textContent = releaseTitle(release) + ' · ' + formatDate(release.publishedAt);
+            var downIcon = document.createElement('i');
+            downIcon.className = 'fa-solid fa-chevron-down';
+            downIcon.setAttribute('aria-hidden', 'true');
+            var upIcon = document.createElement('i');
+            upIcon.className = 'fa-solid fa-chevron-up';
+            upIcon.setAttribute('aria-hidden', 'true');
+            summary.append(downIcon, upIcon, document.createTextNode(
+                releaseTitle(release) + ' · ' + formatDate(release.publishedAt)
+            ));
 
             var content = document.createElement('div');
             content.append(renderNotes(release.body), createAssetLinks(release));

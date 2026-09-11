@@ -7,6 +7,7 @@
     <meta name="description" content="Preuzmite STEMpolis i pregledajte novosti u posljednjim izdanjima.">
     <meta name="theme-color" content="#005fb8">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>STEMpolis</title>
 </head>
@@ -47,12 +48,12 @@
 
             <div class="release-terminal" data-prompt="stempolis@release:~$ latest">
                 <div id="release-status" role="status">Učitavanje podataka o izdanju…</div>
-                <article id="latest-release" class="release-panel" hidden></article>
+                <article id="latest-release" hidden></article>
+            </div>
 
-                <div id="older-releases" hidden>
-                    <h2>Prethodna izdanja</h2>
-                    <div id="older-release-list"></div>
-                </div>
+            <div id="older-releases" hidden>
+                <h2>Prethodna izdanja</h2>
+                <div id="older-release-list"></div>
             </div>
         </section>
     </main>
