@@ -7,6 +7,11 @@
     --blue-dark: #004b91;
     --muted: #596675;
     --border: #dce3ea;
+    --console: #111820;
+    --console-border: #334354;
+    --console-text: #dce6ef;
+    --console-muted: #9aabba;
+    --console-accent: #76baff;
 }
 
 * { box-sizing: border-box; }
@@ -28,26 +33,23 @@ a:focus-visible, summary:focus-visible {
     min-height: 72px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 24px;
-}
-
-.brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: #17212b;
-    font-size: 1.15rem;
-    font-weight: 700;
-    text-decoration: none;
 }
 
 nav, .actions, .asset-list { display: flex; flex-wrap: wrap; gap: 12px; }
 nav { gap: 24px; }
 nav a, footer a { color: var(--muted); font-size: .94rem; text-decoration: none; }
+.github-link { display: inline-flex; align-items: center; gap: 7px; }
+.github-icon { width: 18px; height: 18px; }
 
 .hero {
     max-width: 790px;
+    min-height: calc(100vh - 72px);
+    min-height: calc(100svh - 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: clamp(70px, 12vw, 140px) 0 clamp(80px, 12vw, 130px);
 }
 
@@ -63,10 +65,15 @@ nav a, footer a { color: var(--muted); font-size: .94rem; text-decoration: none;
 h1, h2, p { margin-top: 0; }
 h1 {
     max-width: 760px;
-    margin-bottom: 22px;
-    font-size: clamp(2.6rem, 7vw, 5rem);
+    margin-bottom: 10px;
+    font-size: clamp(3.5rem, 9vw, 7rem);
     line-height: 1.03;
     letter-spacing: -.045em;
+}
+.hero-tagline {
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: clamp(1.1rem, 2.2vw, 1.45rem);
 }
 
 .button {
@@ -76,14 +83,15 @@ h1 {
     justify-content: center;
     padding: 10px 18px;
     border: 1px solid var(--border);
-    border-radius: 7px;
-    font-weight: 650;
+    border-radius: 4px;
+    font-weight: 700;
     text-decoration: none;
 }
 
 .button-primary { border-color: var(--blue); color: white; background: var(--blue); }
 .button-primary:hover { border-color: var(--blue-dark); color: white; background: var(--blue-dark); }
-.button-secondary, .asset-link { color: #17212b; background: white; }
+.button-secondary, .asset-link { border-color: #b8c4cf; color: #17212b; background: transparent; }
+.button-secondary:hover, .asset-link:hover { border-color: var(--blue); color: var(--blue); background: #edf5fc; }
 .download-meta, .future-platforms, .release-date, .asset-meta, .status { color: var(--muted); }
 .download-meta, .future-platforms { font-size: .88rem; }
 .download-meta { margin: 12px 0 2px; }
@@ -100,18 +108,37 @@ h1 {
 .section-heading h2, .older-releases h2 { margin-bottom: 0; font-size: clamp(1.65rem, 4vw, 2.3rem); }
 
 .release-card, .older-releases details, .status {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: white;
+    border: 1px solid var(--console-border);
+    border-radius: 0;
+    color: var(--console-text);
+    background: var(--console);
+    font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
 }
 .release-card { padding: clamp(22px, 4vw, 38px); }
 .release-header { align-items: baseline; margin-bottom: 22px; }
 .release-header h3 { margin: 0; font-size: 1.45rem; }
+.release-header h3::before { content: "$ "; color: var(--console-accent); }
 .release-notes { margin-bottom: 26px; }
 .release-notes h3, .release-notes h4 { margin: 22px 0 8px; }
+.release-notes h3::before { content: "# "; color: var(--console-accent); }
+.release-notes h4::before { content: "## "; color: var(--console-accent); }
 .release-notes p, .release-notes ul, .release-notes ol { margin-bottom: 12px; }
-.release-notes code { padding: 2px 5px; border-radius: 4px; background: #eef2f5; }
+.release-notes code { padding: 2px 5px; border-radius: 0; color: #f4d77d; background: #202b36; }
+.release-card a, .older-releases details a, .status a { color: var(--console-accent); }
+.release-card a:hover, .older-releases details a:hover, .status a:hover { color: white; }
+.release-card .release-date, .release-card .asset-meta,
+.older-releases .release-date, .older-releases .asset-meta, .status { color: var(--console-muted); }
 .asset-link { min-width: 210px; align-items: flex-start; flex-direction: column; }
+.release-card .asset-link, .older-releases .asset-link {
+    border-color: #425466;
+    color: var(--console-text);
+    background: #18222d;
+}
+.release-card .asset-link:hover, .older-releases .asset-link:hover {
+    border-color: var(--console-accent);
+    color: white;
+    background: #202d39;
+}
 .asset-meta { font-size: .8rem; font-weight: 400; }
 .status { padding: 22px; }
 
@@ -132,8 +159,7 @@ footer {
 }
 
 @media (max-width: 640px) {
-    .site-header { align-items: flex-start; flex-direction: column; padding-block: 18px; }
-    nav { width: 100%; justify-content: space-between; gap: 12px; }
+    .site-header { padding-block: 12px; }
     .section-heading, .release-header, footer { align-items: flex-start; flex-direction: column; }
     .button, .asset-link { width: 100%; }
 }
