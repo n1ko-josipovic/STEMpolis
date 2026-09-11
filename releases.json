@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-09-11T21:26:22.842Z",
+  "repository": {
+    "owner": "n1ko-josipovic",
+    "name": "STEMpolis",
+    "releasesUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases"
+  },
+  "releases": [
+    {
+      "tagName": "v1.0.1",
+      "name": "STEMpolis v1.0.1 (Windows)",
+      "publishedAt": "2026-09-09T18:48:11Z",
+      "htmlUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/tag/v1.0.1",
+      "body": "## Poboljšanja i popravci\r\n\r\n- Bolja pretraga TinyTeX paketa\r\n- Dodan automatski oporavak za nedostajuće LaTeX pakete\r\n- Promijenjen naziv naredbe `\\comment` radnog lista migracijom na `\\commentarii` kako bi se izbjegao konflikt.\r\n- Dodan je prazan predložak LaTeX projekta i pojednostavljen je birač predložaka projekta.\r\n\r\n## Improvements and fixes\r\n\r\n- Improved TinyTeX package detection\r\n- Added automatic recovery for missing LaTeX packages\r\n- Fixed the worksheet `\\comment` command conflict by migrating to `\\commentarii`.\r\n- Added a blank LaTeX project template and simplified the project template selector.",
+      "assets": [
+        {
+          "name": "latest.yml",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.1/latest.yml",
+          "size": 335,
+          "contentType": "application/octet-stream",
+          "downloadCount": 1,
+          "platform": "other"
+        },
+        {
+          "name": "STEMpolis-1.0.1.exe",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.1/STEMpolis-1.0.1.exe",
+          "size": 125921923,
+          "contentType": "application/x-msdownload",
+          "downloadCount": 1,
+          "platform": "windows"
+        },
+        {
+          "name": "STEMpolis-1.0.1.exe.blockmap",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.1/STEMpolis-1.0.1.exe.blockmap",
+          "size": 132919,
+          "contentType": "application/octet-stream",
+          "downloadCount": 1,
+          "platform": "other"
+        }
+      ]
+    },
+    {
+      "tagName": "v1.0.0",
+      "name": "STEMpolis v1.0.0 (Windows)",
+      "publishedAt": "2026-09-09T18:42:28Z",
+      "htmlUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/tag/v1.0.0",
+      "body": "",
+      "assets": [
+        {
+          "name": "latest.yml",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.0/latest.yml",
+          "size": 335,
+          "contentType": "application/octet-stream",
+          "downloadCount": 0,
+          "platform": "other"
+        },
+        {
+          "name": "STEMpolis-1.0.0.exe",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.0/STEMpolis-1.0.0.exe",
+          "size": 125536125,
+          "contentType": "application/x-msdownload",
+          "downloadCount": 0,
+          "platform": "windows"
+        },
+        {
+          "name": "STEMpolis-1.0.0.exe.blockmap",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.0/STEMpolis-1.0.0.exe.blockmap",
+          "size": 132668,
+          "contentType": "application/octet-stream",
+          "downloadCount": 0,
+          "platform": "other"
+        }
+      ]
+    }
+  ]
+}
