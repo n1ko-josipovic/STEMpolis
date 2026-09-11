@@ -165,7 +165,7 @@
         title.append(titleLink);
 
         var date = document.createElement('span');
-        date.textContent = 'Objavljeno ' + formatDate(release.publishedAt);
+        date.textContent = '· ' + formatDate(release.publishedAt);
         header.append(title, date);
 
         latestContainer.replaceChildren(header, renderNotes(release.body), createAssetLinks(release));
@@ -198,9 +198,11 @@
             var upIcon = document.createElement('i');
             upIcon.className = 'fa-solid fa-chevron-up';
             upIcon.setAttribute('aria-hidden', 'true');
-            summary.append(downIcon, upIcon, document.createTextNode(
-                releaseTitle(release) + ' · ' + formatDate(release.publishedAt)
-            ));
+            var title = document.createElement('span');
+            title.textContent = releaseTitle(release);
+            var date = document.createElement('span');
+            date.textContent = '· ' + formatDate(release.publishedAt);
+            summary.append(downIcon, upIcon, title, date);
 
             var content = document.createElement('div');
             content.append(renderNotes(release.body), createAssetLinks(release));
