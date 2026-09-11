@@ -110,7 +110,7 @@ h1 {
     font-weight: 650;
 }
 .release-terminal > [role="status"] { color: #9aabba; }
-.release-terminal > article { padding: 0 6px 6px; }
+.release-terminal > article { padding: 0 0 6px; }
 .release-terminal > article > header, #older-release-list summary {
     display: flex;
     align-items: center;
