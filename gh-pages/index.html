@@ -14,8 +14,8 @@
 <body>
     <header class="site-header">
         <nav>
-            <a class="github-link" href="https://github.com/n1ko-josipovic/STEMpolis">
-                <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <a href="https://github.com/n1ko-josipovic/STEMpolis">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path fill="currentColor"
                         d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.23c-3.24.7-3.92-1.37-3.92-1.37-.53-1.35-1.29-1.71-1.29-1.71-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.74-1.56-2.58-.29-5.3-1.29-5.3-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.47.11-3.04 0 0 .97-.31 3.16 1.18A10.98 10.98 0 0 1 12 6.13c.98 0 1.95.13 2.87.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.57.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.08 0 4.4-2.72 5.38-5.31 5.67.42.36.79 1.07.79 2.16v3.26c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z" />
                 </svg>
@@ -27,7 +27,7 @@
     <main>
         <section class="hero" id="preuzimanje">
             <h1>STEMpolis</h1>
-            <p class="hero-tagline">Materijali na jednome mjestu.</p>
+            <p>Materijali na jednome mjestu.</p>
             <div class="actions">
                 <a class="button button-primary" id="primary-download"
                     href="https://github.com/n1ko-josipovic/STEMpolis/releases/latest">
@@ -35,25 +35,24 @@
                 </a>
                 <a class="button button-secondary" href="stempolis://login">Otvori aplikaciju</a>
             </div>
-            <p class="download-meta" id="download-meta">Windows 10/11 · 64-bit</p>
-            <p class="future-platforms">Uskoro dolazi podrška za macOS i Linux</p>
+            <p id="download-meta">Windows 10/11 · 64-bit</p>
+            <p>Uskoro podrška za Linux i macOS</p>
         </section>
 
         <section class="releases" id="izdanja" aria-labelledby="releases-title">
             <div class="section-heading">
-                <div>
-                    <p class="eyebrow">Izdanja</p>
-                    <h2 id="releases-title">Najnovije izdanje</h2>
-                </div>
+                <h2 id="releases-title">Najnovije izdanje</h2>
                 <a href="https://github.com/n1ko-josipovic/STEMpolis/releases">Pogledajte sva izdanja</a>
             </div>
 
-            <div id="release-status" class="status" role="status">Učitavanje podataka o izdanju…</div>
-            <article id="latest-release" class="release-card" hidden></article>
+            <div class="release-terminal" data-prompt="stempolis@release:~$ latest">
+                <div id="release-status" role="status">Učitavanje podataka o izdanju…</div>
+                <article id="latest-release" class="release-panel" hidden></article>
 
-            <div id="older-releases" class="older-releases" hidden>
-                <h2>Prethodna izdanja</h2>
-                <div id="older-release-list"></div>
+                <div id="older-releases" hidden>
+                    <h2>Prethodna izdanja</h2>
+                    <div id="older-release-list"></div>
+                </div>
             </div>
         </section>
     </main>

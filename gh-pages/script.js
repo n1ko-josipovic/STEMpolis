@@ -57,8 +57,7 @@
     }
 
     function renderNotes(markdown) {
-        var container = document.createElement('div');
-        container.className = 'release-notes';
+        var container = document.createElement('section');
         var lines = String(markdown || '').replace(/\r\n?/g, '\n').split('\n');
         var activeList = null;
 
@@ -133,7 +132,6 @@
             var label = document.createElement('span');
             label.textContent = 'Preuzmi za ' + platformLabel(asset.platform);
             var meta = document.createElement('span');
-            meta.className = 'asset-meta';
             meta.textContent = asset.name + (formatBytes(asset.size) ? ' · ' + formatBytes(asset.size) : '');
 
             link.append(label, meta);
@@ -158,8 +156,10 @@
     }
 
     function renderLatest(release) {
-        var header = document.createElement('div');
-        header.className = 'release-header';
+        var panelTitle = document.createElement('strong');
+        panelTitle.textContent = 'Promjene u aplikaciji';
+
+        var header = document.createElement('header');
 
         var title = document.createElement('h3');
         var titleLink = document.createElement('a');
@@ -168,11 +168,10 @@
         title.append(titleLink);
 
         var date = document.createElement('span');
-        date.className = 'release-date';
         date.textContent = 'Objavljeno ' + formatDate(release.publishedAt);
         header.append(title, date);
 
-        latestContainer.replaceChildren(header, renderNotes(release.body), createAssetLinks(release));
+        latestContainer.replaceChildren(panelTitle, header, renderNotes(release.body), createAssetLinks(release));
         latestContainer.hidden = false;
 
         var windowsAsset = (release.assets || []).find(function (asset) {
@@ -196,7 +195,6 @@
             summary.textContent = releaseTitle(release) + ' · ' + formatDate(release.publishedAt);
 
             var content = document.createElement('div');
-            content.className = 'older-release-content';
             content.append(renderNotes(release.body), createAssetLinks(release));
             details.append(summary, content);
             olderList.append(details);

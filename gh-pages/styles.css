@@ -7,11 +7,6 @@
     --blue-dark: #004b91;
     --muted: #596675;
     --border: #dce3ea;
-    --console: #111820;
-    --console-border: #334354;
-    --console-text: #dce6ef;
-    --console-muted: #9aabba;
-    --console-accent: #76baff;
 }
 
 * { box-sizing: border-box; }
@@ -24,7 +19,7 @@ a:focus-visible, summary:focus-visible {
     outline-offset: 3px;
 }
 
-.site-header, main, footer {
+.site-header, main {
     width: min(1080px, calc(100% - 40px));
     margin-inline: auto;
 }
@@ -38,10 +33,8 @@ a:focus-visible, summary:focus-visible {
 }
 
 nav, .actions, .asset-list { display: flex; flex-wrap: wrap; gap: 12px; }
-nav { gap: 24px; }
-nav a, footer a { color: var(--muted); font-size: .94rem; text-decoration: none; }
-.github-link { display: inline-flex; align-items: center; gap: 7px; }
-.github-icon { width: 18px; height: 18px; }
+nav a { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: .94rem; text-decoration: none; }
+nav svg { width: 18px; height: 18px; }
 
 .hero {
     max-width: 790px;
@@ -53,15 +46,6 @@ nav a, footer a { color: var(--muted); font-size: .94rem; text-decoration: none;
     padding: clamp(70px, 12vw, 140px) 0 clamp(80px, 12vw, 130px);
 }
 
-.eyebrow {
-    margin: 0 0 12px;
-    color: var(--blue);
-    font-size: .82rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-
 h1, h2, p { margin-top: 0; }
 h1 {
     max-width: 760px;
@@ -70,7 +54,7 @@ h1 {
     line-height: 1.03;
     letter-spacing: -.045em;
 }
-.hero-tagline {
+.hero > h1 + p {
     margin-bottom: 30px;
     color: var(--muted);
     font-size: clamp(1.1rem, 2.2vw, 1.45rem);
@@ -90,77 +74,91 @@ h1 {
 
 .button-primary { border-color: var(--blue); color: white; background: var(--blue); }
 .button-primary:hover { border-color: var(--blue-dark); color: white; background: var(--blue-dark); }
-.button-secondary, .asset-link { border-color: #b8c4cf; color: #17212b; background: transparent; }
-.button-secondary:hover, .asset-link:hover { border-color: var(--blue); color: var(--blue); background: #edf5fc; }
-.download-meta, .future-platforms, .release-date, .asset-meta, .status { color: var(--muted); }
-.download-meta, .future-platforms { font-size: .88rem; }
-.download-meta { margin: 12px 0 2px; }
-.future-platforms { margin-bottom: 0; }
+.button-secondary { border-color: #b8c4cf; color: #17212b; background: transparent; }
+.button-secondary:hover { border-color: var(--blue); color: var(--blue); background: #edf5fc; }
+.hero > .actions ~ p { color: var(--muted); font-size: .88rem; }
+.hero > .actions + p { margin: 12px 0 2px; }
+.hero > p:last-child { margin-bottom: 0; }
 
 .releases { padding: 70px 0 90px; border-top: 1px solid var(--border); }
-.section-heading, .release-header {
+.section-heading, .release-panel > header {
     display: flex;
     align-items: end;
     justify-content: space-between;
     gap: 24px;
 }
 .section-heading { margin-bottom: 26px; }
-.section-heading h2, .older-releases h2 { margin-bottom: 0; font-size: clamp(1.65rem, 4vw, 2.3rem); }
+.section-heading h2 { margin-bottom: 0; font-size: clamp(1.65rem, 4vw, 2.3rem); }
 
-.release-card, .older-releases details, .status {
-    border: 1px solid var(--console-border);
-    border-radius: 0;
-    color: var(--console-text);
-    background: var(--console);
+.release-terminal {
+    --ansi-accent: #f2cc60;
+    --ansi-link: #79c0ff;
+    padding: 18px;
+    border: 1px solid #334354;
+    border-radius: 4px;
+    color: #dce6ef;
+    background: #0b1117;
     font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
 }
-.release-card { padding: clamp(22px, 4vw, 38px); }
-.release-header { align-items: baseline; margin-bottom: 22px; }
-.release-header h3 { margin: 0; font-size: 1.45rem; }
-.release-header h3::before { content: "$ "; color: var(--console-accent); }
-.release-notes { margin-bottom: 26px; }
-.release-notes h3, .release-notes h4 { margin: 22px 0 8px; }
-.release-notes h3::before { content: "# "; color: var(--console-accent); }
-.release-notes h4::before { content: "## "; color: var(--console-accent); }
-.release-notes p, .release-notes ul, .release-notes ol { margin-bottom: 12px; }
-.release-notes code { padding: 2px 5px; border-radius: 0; color: #f4d77d; background: #202b36; }
-.release-card a, .older-releases details a, .status a { color: var(--console-accent); }
-.release-card a:hover, .older-releases details a:hover, .status a:hover { color: white; }
-.release-card .release-date, .release-card .asset-meta,
-.older-releases .release-date, .older-releases .asset-meta, .status { color: var(--console-muted); }
+.release-terminal::before {
+    content: attr(data-prompt);
+    display: block;
+    margin-bottom: 22px;
+    color: #7ee787;
+    font-size: .9rem;
+}
+.release-terminal > [role="status"] { color: #9aabba; }
+.release-panel {
+    position: relative;
+    padding: clamp(24px, 4vw, 38px);
+    border: 1px solid var(--ansi-accent);
+    border-radius: 2px;
+}
+.release-panel > strong:first-child {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    padding-inline: 8px;
+    color: var(--ansi-accent);
+    background: #0b1117;
+    font-size: .85rem;
+    transform: translateY(-55%);
+}
+.release-panel > header { align-items: baseline; margin-bottom: 22px; }
+.release-panel > header h3 { margin: 0; font-size: 1.45rem; }
+.release-panel > header h3::before { content: "$ "; color: var(--ansi-accent); }
+.release-panel > header > span, .asset-link span + span { color: #9aabba; }
+.release-terminal section { margin-bottom: 26px; }
+.release-terminal section h3, .release-terminal section h4 { margin: 22px 0 8px; }
+.release-terminal section h3::before { content: "# "; color: var(--ansi-accent); }
+.release-terminal section h4::before { content: "## "; color: var(--ansi-accent); }
+.release-terminal section p, .release-terminal section ul,
+.release-terminal section ol { margin-bottom: 12px; }
+.release-terminal section code { padding: 2px 5px; color: var(--ansi-accent); background: #1c2733; }
+.release-terminal a { color: var(--ansi-link); }
+.release-terminal a:hover { color: white; }
 .asset-link { min-width: 210px; align-items: flex-start; flex-direction: column; }
-.release-card .asset-link, .older-releases .asset-link {
+.release-terminal .asset-link {
     border-color: #425466;
-    color: var(--console-text);
+    color: #dce6ef;
     background: #18222d;
 }
-.release-card .asset-link:hover, .older-releases .asset-link:hover {
-    border-color: var(--console-accent);
+.release-terminal .asset-link:hover {
+    border-color: var(--ansi-link);
     color: white;
     background: #202d39;
 }
-.asset-meta { font-size: .8rem; font-weight: 400; }
-.status { padding: 22px; }
+.asset-link span + span { font-size: .8rem; font-weight: 400; }
 
-.older-releases { margin-top: 46px; }
-.older-releases h2 { margin-bottom: 18px; }
-.older-releases details { margin-top: 10px; padding: 0 20px; }
-.older-releases summary { padding: 16px 0; cursor: pointer; font-weight: 650; }
-.older-release-content { padding: 0 0 20px; }
-
-footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding-block: 28px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: .9rem;
-}
+#older-releases { margin-top: 42px; }
+#older-releases h2 { margin-bottom: 16px; font-size: 1.2rem; }
+#older-releases details { margin-top: 10px; padding-inline: 18px; border: 1px solid #334354; border-radius: 2px; }
+#older-releases summary { padding: 14px 0; cursor: pointer; font-weight: 650; }
+#older-releases details > div { padding-bottom: 18px; }
 
 @media (max-width: 640px) {
     .site-header { padding-block: 12px; }
-    .section-heading, .release-header, footer { align-items: flex-start; flex-direction: column; }
+    .section-heading, .release-panel > header { align-items: flex-start; flex-direction: column; }
     .button, .asset-link { width: 100%; }
 }
 
