@@ -50,7 +50,7 @@
             var intentValue = intent || (target === 'reset-password' ? 'reset-password' : 'confirm');
             var deepLink = 'stempolis://' + target + '?intent=' + encodeURIComponent(intentValue) + hash;
 
-            title.textContent = target !== 'reset-password'
+            title.textContent = target === 'reset-password'
                 ? `Otvorite aplikaciju.`
                 : 'E-mail adresa je potvrđena.';
 
