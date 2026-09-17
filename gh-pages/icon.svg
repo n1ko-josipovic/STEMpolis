@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- STEMpolis concept variant: circular maze glyph without an outer frame. -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="342 342 340 340" role="img" aria-labelledby="title desc">
-  <title id="title">STEMpolis circular maze</title>
-  <desc id="desc">Kružni apstraktni maze znak u plavim nijansama, bez vanjskog okvira.</desc>
-
   <g id="symbol" transform="translate(51 51) scale(0.9)">
     <g id="negative-space" fill="none" stroke="#0875D1" stroke-width="34" stroke-linecap="round">
-      <!-- Offset circular paths create an editable, circular maze glyph. -->
       <circle cx="512" cy="510" r="166" stroke-dasharray="730 313" stroke-dashoffset="18" transform="rotate(16 512 510)"/>
       <circle cx="512" cy="510" r="122" stroke="#0A67B8" stroke-dasharray="500 267" stroke-dashoffset="74" transform="rotate(142 512 510)"/>
       <circle cx="512" cy="510" r="78" stroke="#49B0FF" stroke-dasharray="286 204" stroke-dashoffset="24" transform="rotate(274 512 510)"/>
