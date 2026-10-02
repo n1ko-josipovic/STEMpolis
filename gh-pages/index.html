@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Preuzmite STEMpolis i pregledajte novosti u posljednjim izdanjima.">
-    <meta name="theme-color" content="#005fb8">
+    <meta name="theme-color" content="#f3f7fd">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>STEMpolis</title>
 </head>
@@ -27,17 +26,21 @@
 
     <main>
         <section class="hero" id="preuzimanje">
-            <h1>STEMpolis</h1>
-            <p>Materijali na jednome mjestu.</p>
-            <div class="actions">
-                <a class="button button-primary" id="primary-download"
-                    href="https://github.com/n1ko-josipovic/STEMpolis/releases/latest">
-                    Preuzmi za Windows
-                </a>
-                <a class="button button-secondary" href="stempolis://login">Otvori aplikaciju</a>
+            <div class="hero-copy">
+                <h1>STEM<span>polis</span></h1>
+                <p>Materijali na jednome mjestu.</p>
+                <div class="actions">
+                    <a class="button button-primary" id="primary-download"
+                        href="https://github.com/n1ko-josipovic/STEMpolis/releases/latest">
+                        <span aria-hidden="true">↓</span> Preuzmi za Windows
+                    </a>
+                    <a class="button button-secondary" href="stempolis://login">
+                        Otvori aplikaciju <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+                <p id="download-meta">Windows 10/11 · 64-bit</p>
+                <p>Uskoro podrška za Linux i macOS</p>
             </div>
-            <p id="download-meta">Windows 10/11 · 64-bit</p>
-            <p>Uskoro podrška za Linux i macOS</p>
         </section>
 
         <section class="releases" id="izdanja" aria-labelledby="releases-title">
@@ -46,9 +49,27 @@
                 <a href="https://github.com/n1ko-josipovic/STEMpolis/releases">Pogledajte sva izdanja</a>
             </div>
 
-            <div class="release-terminal" data-prompt="stempolis@release:~$ latest">
-                <div id="release-status" role="status">Učitavanje podataka o izdanju…</div>
-                <article id="latest-release" hidden></article>
+            <div class="release-terminal">
+                <div class="terminal-toolbar" aria-hidden="true">
+                    <span class="terminal-controls"><span></span><span></span><span></span></span>
+                    <span class="terminal-title">stempolis / releases</span>
+                    <span class="terminal-mark">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path d="m5 6 6 6-6 6M13 18h6" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="terminal-body" tabindex="0" aria-labelledby="releases-title">
+                    <div class="terminal-prompt" aria-hidden="true">
+                        <span class="prompt-user">stempolis@release</span><span class="prompt-path">:~</span><span class="prompt-sign">$</span> <span>latest</span>
+                    </div>
+                    <div id="release-status" role="status">Učitavanje podataka o izdanju…</div>
+                    <article id="latest-release" hidden></article>
+                    <div class="terminal-prompt terminal-idle" aria-hidden="true">
+                        <span class="prompt-user">stempolis@release</span><span class="prompt-path">:~</span><span class="prompt-sign">$</span> <span class="terminal-cursor"></span>
+                    </div>
+                </div>
             </div>
 
             <div id="older-releases" hidden>

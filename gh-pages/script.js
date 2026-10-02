@@ -72,6 +72,7 @@
             if (heading) {
                 activeList = null;
                 var headingElement = document.createElement(heading[1].length === 1 ? 'h3' : 'h4');
+                headingElement.dataset.prefix = heading[1] + ' ';
                 appendInline(headingElement, heading[2]);
                 container.append(headingElement);
                 return;
@@ -193,16 +194,13 @@
 
             var summary = document.createElement('summary');
             var downIcon = document.createElement('i');
-            downIcon.className = 'fa-solid fa-chevron-down';
+            downIcon.className = 'release-chevron';
             downIcon.setAttribute('aria-hidden', 'true');
-            var upIcon = document.createElement('i');
-            upIcon.className = 'fa-solid fa-chevron-up';
-            upIcon.setAttribute('aria-hidden', 'true');
             var title = document.createElement('span');
             title.textContent = releaseTitle(release);
             var date = document.createElement('span');
             date.textContent = '· ' + formatDate(release.publishedAt);
-            summary.append(downIcon, upIcon, title, date);
+            summary.append(downIcon, title, date);
 
             var content = document.createElement('div');
             content.append(renderNotes(release.body), createAssetLinks(release));

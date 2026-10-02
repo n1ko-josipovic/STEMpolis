@@ -1,9 +1,109 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-10-01T21:01:36.193Z",
   "repository": {
     "owner": "n1ko-josipovic",
     "name": "STEMpolis",
     "releasesUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases"
   },
-  "releases": []
+  "releases": [
+    {
+      "tagName": "v1.1.0",
+      "name": "STEMpolis v1.1.0 (Windows)",
+      "publishedAt": "2026-10-01T21:01:22Z",
+      "htmlUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/tag/v1.1.0",
+      "body": "# STEMpolis v.1.1.0\r\n\r\n## 🇭🇷\r\n\r\n### Novo\r\n\r\n- Nova arhitektura lokalne i online sinkronizacije podataka.\r\n- Pouzdaniji rad bez mreže i nastavak rada nakon ponovnog povezivanja.\r\n- Pregled lokalnih promjena, povijesti i mogućih sukoba prije sinkronizacije.\r\n- Prošireni radni listovi s oznakama, različitim vrstama zadataka, ponuđenim odgovorima, brojem redaka za odgovor i programskim kodom.\r\n- Poboljšano dijeljenje i izvoz radnih listova, dokumenata, LaTeX projekata i bijelih ploča.\r\n\r\n### Poboljšanja\r\n\r\n- Stabilnije spremanje i učitavanje datoteka, slika, PDF-ova i sadržaja bijelih ploča.\r\n- Pouzdanije stvaranje i sinkronizacija oznaka.\r\n- Poboljšan PDF preglednik, komentari i rad s više stranica.\r\n- Ujednačenije sučelje, obavijesti i prikaz stanja sinkronizacije.\r\n- Poboljšano pokretanje aplikacije i učitavanje sadržaja nakon prijave.\r\n\r\n### Popravci\r\n\r\n- Ispravljeni problemi s gubitkom ili ponavljanjem lokalnih promjena.\r\n- Ispravljeni prolazni prikazi nepotpunih oznaka i stavki tijekom sinkronizacije.\r\n- Ispravljeni problemi s učitavanjem sadržaja nakon prekida mrežne veze.\r\n- Razna poboljšanja stabilnosti i pouzdanosti aplikacije.\r\n\r\n## 🇬🇧\r\n\r\n### New\r\n\r\n- New architecture for local and online data synchronization.\r\n- More reliable offline operation and continuation after reconnecting.\r\n- A view of local changes, history, and possible conflicts before synchronization.\r\n- Expanded worksheets with tags, different task types, answer choices, answer lines, and programming code.\r\n- Improved sharing and export of worksheets, documents, LaTeX projects, and whiteboards.\r\n\r\n### Improvements\r\n\r\n- More reliable saving and loading of files, images, PDFs, and whiteboard content.\r\n- More reliable tag creation and synchronization.\r\n- Improved PDF viewer, comments, and multi-page handling.\r\n- More consistent interface, notifications, and synchronization status display.\r\n- Improved application startup and content loading after sign-in.\r\n\r\n### Fixes\r\n\r\n- Fixed issues causing local changes to be lost or duplicated.\r\n- Fixed transient displays of incomplete tags and items during synchronization.\r\n- Fixed content-loading issues after network interruptions.\r\n- Various stability and reliability improvements.\r\n",
+      "assets": [
+        {
+          "name": "latest.yml",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.1.0/latest.yml",
+          "size": 335,
+          "contentType": "application/octet-stream",
+          "downloadCount": 0,
+          "platform": "other"
+        },
+        {
+          "name": "STEMpolis-1.1.0.exe",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.1.0/STEMpolis-1.1.0.exe",
+          "size": 112978942,
+          "contentType": "application/x-msdownload",
+          "downloadCount": 0,
+          "platform": "windows"
+        },
+        {
+          "name": "STEMpolis-1.1.0.exe.blockmap",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.1.0/STEMpolis-1.1.0.exe.blockmap",
+          "size": 119847,
+          "contentType": "application/octet-stream",
+          "downloadCount": 0,
+          "platform": "other"
+        }
+      ]
+    },
+    {
+      "tagName": "v1.0.1",
+      "name": "STEMpolis v1.0.1 (Windows)",
+      "publishedAt": "2026-09-09T18:48:11Z",
+      "htmlUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/tag/v1.0.1",
+      "body": "# STEMpolis v1.0.1\r\n\r\n## 🇭🇷\r\n\r\n### Poboljšanja i popravci\r\n\r\n- Poboljšana je detekcija i pretraga TinyTeX paketa.\r\n- Dodan je automatski oporavak u slučaju nedostajućih LaTeX paketa.\r\n- Naredba `\\comment` u radnim listovima preimenovana je u `\\commentarii` kako bi se izbjegao sukob s postojećom naredbom.\r\n- Dodan je prazan predložak LaTeX projekta, a odabir predloška projekta dodatno je pojednostavljen.\r\n\r\n## 🇬🇧\r\n\r\n### Improvements and fixes\r\n\r\n- Improved TinyTeX package detection and search.\r\n- Added automatic recovery when LaTeX packages are missing.\r\n- Renamed the worksheet `\\comment` command to `\\commentarii` to avoid a conflict with an existing command.\r\n- Added a blank LaTeX project template and further simplified project template selection.\r\n",
+      "assets": [
+        {
+          "name": "latest.yml",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.1/latest.yml",
+          "size": 335,
+          "contentType": "application/octet-stream",
+          "downloadCount": 10,
+          "platform": "other"
+        },
+        {
+          "name": "STEMpolis-1.0.1.exe",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.1/STEMpolis-1.0.1.exe",
+          "size": 125921923,
+          "contentType": "application/x-msdownload",
+          "downloadCount": 4,
+          "platform": "windows"
+        },
+        {
+          "name": "STEMpolis-1.0.1.exe.blockmap",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.1/STEMpolis-1.0.1.exe.blockmap",
+          "size": 132919,
+          "contentType": "application/octet-stream",
+          "downloadCount": 1,
+          "platform": "other"
+        }
+      ]
+    },
+    {
+      "tagName": "v1.0.0",
+      "name": "STEMpolis v1.0.0 (Windows)",
+      "publishedAt": "2026-09-09T18:42:28Z",
+      "htmlUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/tag/v1.0.0",
+      "body": "",
+      "assets": [
+        {
+          "name": "latest.yml",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.0/latest.yml",
+          "size": 335,
+          "contentType": "application/octet-stream",
+          "downloadCount": 0,
+          "platform": "other"
+        },
+        {
+          "name": "STEMpolis-1.0.0.exe",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.0/STEMpolis-1.0.0.exe",
+          "size": 125536125,
+          "contentType": "application/x-msdownload",
+          "downloadCount": 1,
+          "platform": "windows"
+        },
+        {
+          "name": "STEMpolis-1.0.0.exe.blockmap",
+          "browserDownloadUrl": "https://github.com/n1ko-josipovic/STEMpolis/releases/download/v1.0.0/STEMpolis-1.0.0.exe.blockmap",
+          "size": 132668,
+          "contentType": "application/octet-stream",
+          "downloadCount": 0,
+          "platform": "other"
+        }
+      ]
+    }
+  ]
 }
