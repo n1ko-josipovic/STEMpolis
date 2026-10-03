@@ -1,2 +1,2 @@
 # STEMpolis
-Aplikacija za upravljanje materijalima.
+Aplikacija za upravljanje školskim materijalima.
